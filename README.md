@@ -13,6 +13,7 @@ Un template moderno y completo para aplicaciones Next.js con autenticación, bas
 - **🔧 TypeScript** configurado
 - **📦 Gestión de paquetes** con Bun
 - **🎯 ESLint** y configuración de código limpio
+- **🔒 Git hooks** con Husky para pre-commit
 
 ## 🛠️ Stack Tecnológico
 
@@ -116,11 +117,16 @@ bun run dev              # Servidor de desarrollo con Turbopack
 bun run build            # Construcción para producción
 bun run start            # Servidor de producción
 bun run lint             # Linting con ESLint
+bun run lint:fix         # Linting con auto-fix
+bun run type-check       # Verificación de tipos TypeScript
 
 # Base de datos
 bun run db:generate      # Generar migraciones
 bun run db:migrate       # Ejecutar migraciones
 bun run db:studio        # Abrir Drizzle Studio
+
+# Git Hooks
+bun run prepare          # Configurar Husky hooks
 ```
 
 ## 🎨 Personalización
@@ -144,6 +150,31 @@ Edita `src/core/db/schema.ts` y ejecuta:
 ```bash
 bun run db:generate
 bun run db:migrate
+```
+
+## 🔒 Git Hooks
+
+El template incluye Husky configurado para mantener la calidad del código:
+
+### Pre-commit Hook
+- **Linting automático** con ESLint (`bun run lint`)
+- **Verificación de tipos** TypeScript (`bun run type-check`)
+- **Prevención de commits** con errores de código
+
+### Configuración
+```bash
+# Instalar hooks (se ejecuta automáticamente con bun install)
+bun run prepare
+
+# Verificar configuración
+ls .husky/
+```
+
+### Personalizar hooks
+Edita `.husky/pre-commit` para agregar más verificaciones:
+```bash
+#!/usr/bin/env sh
+bun run lint && bun run type-check && bun run test
 ```
 
 ## 🔐 Autenticación
@@ -187,6 +218,7 @@ El template incluye autenticación completa con Better Auth:
 - **Notificaciones** con Sonner y configuración de shadcn/ui
 - **Tema oscuro/claro** automático
 - **Optimización de fuentes** con next/font
+- **Git hooks** automáticos con Husky (lint + type-check en pre-commit)
 
 ## 🚀 Despliegue
 
