@@ -1,36 +1,222 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js Template - dalessandro07
 
-## Getting Started
+Un template moderno y completo para aplicaciones Next.js con autenticación, base de datos y UI components preconfigurados.
 
-First, run the development server:
+## ✨ Características
 
+- **⚡ Next.js 15** con App Router y Turbopack
+- **🔐 Autenticación** con Better Auth
+- **🗄️ Base de datos** SQLite con Turso y Drizzle ORM
+- **🎨 UI Components** con shadcn/ui
+- **🌙 Tema oscuro/claro** con next-themes
+- **📱 Responsive** y accesible
+- **🔧 TypeScript** configurado
+- **📦 Gestión de paquetes** con Bun
+- **🎯 ESLint** y configuración de código limpio
+
+## 🛠️ Stack Tecnológico
+
+- **Framework**: Next.js 15.3.5
+- **Lenguaje**: TypeScript
+- **Base de datos**: SQLite (Turso)
+- **ORM**: Drizzle ORM
+- **Autenticación**: Better Auth
+- **UI**: shadcn/ui
+- **Gestión de estado**: React 19
+- **Notificaciones**: Sonner
+- **Iconos**: Lucide React
+
+## 🚀 Inicio Rápido
+
+### Prerrequisitos
+
+- Node.js 18+ o Bun
+- Cuenta en [Turso](https://turso.tech) (para la base de datos)
+
+### Instalación
+
+1. **Clona el template**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-usuario/dalessandro07-nextjs-template.git
+cd dalessandro07-nextjs-template
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instala las dependencias**
+```bash
+bun install
+# o
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Configura las variables de entorno**
+```bash
+cp env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edita `.env.local` con tus credenciales:
+```env
+# Turso Database
+TURSO_CONNECTION_URL=your_turso_connection_url
+TURSO_AUTH_TOKEN=your_turso_auth_token
 
-## Learn More
+# Better Auth
+AUTH_SECRET=your_auth_secret_key
+AUTH_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# OAuth Providers (opcional)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Configura la base de datos**
+```bash
+# Genera las migraciones
+bun run db:generate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Ejecuta las migraciones
+bun run db:migrate
+```
 
-## Deploy on Vercel
+5. **Inicia el servidor de desarrollo**
+```bash
+bun run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app/                    # App Router de Next.js
+│   ├── api/               # API Routes
+│   │   └── auth/          # Rutas de autenticación
+│   │   └── page.tsx       # Página principal
+│   ├── globals.css        # Estilos globales
+│   ├── layout.tsx         # Layout principal
+│   └── page.tsx           # Página principal
+├── core/                  # Lógica de negocio
+│   ├── components/        # Componentes UI
+│   │   └── ui/           # Componentes base
+│   ├── db/               # Base de datos
+│   │   ├── index.ts      # Conexión DB
+│   │   └── schema.ts     # Esquemas Drizzle
+│   └── lib/              # Utilidades
+│       ├── auth.ts       # Configuración auth
+│       ├── auth-client.ts # Cliente auth
+│       ├── constants/    # Constantes
+│       └── utils.ts      # Utilidades generales
+```
+
+## 🔧 Scripts Disponibles
+
+```bash
+# Desarrollo
+bun run dev              # Servidor de desarrollo con Turbopack
+bun run build            # Construcción para producción
+bun run start            # Servidor de producción
+bun run lint             # Linting con ESLint
+
+# Base de datos
+bun run db:generate      # Generar migraciones
+bun run db:migrate       # Ejecutar migraciones
+bun run db:studio        # Abrir Drizzle Studio
+```
+
+## 🎨 Personalización
+
+### Configurar la aplicación
+
+Edita `src/core/lib/constants/index.ts`:
+```typescript
+export const APP_NAME = 'Mi Aplicación'
+export const APP_DESCRIPTION = 'Descripción de mi aplicación'
+export const APP_SLOGAN = 'Mi slogan'
+```
+
+### Agregar nuevos componentes UI
+
+Los componentes base están en `src/core/components/ui/`. Puedes agregar nuevos componentes siguiendo el patrón de shadcn/ui. "bunx --bun shadcn@latest add ..."
+
+### Modificar el esquema de base de datos
+
+Edita `src/core/db/schema.ts` y ejecuta:
+```bash
+bun run db:generate
+bun run db:migrate
+```
+
+## 🔐 Autenticación
+
+El template incluye autenticación completa con Better Auth:
+
+- **Autenticación por email/contraseña**
+- **OAuth providers** (Google, GitHub, etc.)
+- **Sesiones seguras**
+- **Verificación de email**
+- **Roles de usuario** (Admin/User)
+
+### Configurar OAuth
+
+1. Crea una aplicación en el proveedor OAuth
+2. Agrega las credenciales en `.env` o `.env.local`
+3. Configura las URLs de redirección
+
+## 🗄️ Base de Datos
+
+### Turso (SQLite en la nube)
+
+- **Gratuito** con un plan generoso
+- **Rápido** y escalable
+- **SQLite** compatible
+- **Migraciones** automáticas
+
+### Esquemas incluidos
+
+- `user` - Usuarios del sistema
+- `session` - Sesiones activas
+- `account` - Cuentas de OAuth
+- `verification` - Verificaciones de email
+
+## 🎯 Características Avanzadas
+
+- **TypeScript** estrictamente configurado
+- **ESLint** con reglas de Next.js
+- **Tailwind CSS v4** con configuración optimizada
+- **Componentes accesibles** con shadcn/ui
+- **Notificaciones** con Sonner y configuración de shadcn/ui
+- **Tema oscuro/claro** automático
+- **Optimización de fuentes** con next/font
+
+## 🚀 Despliegue
+
+### Vercel (Recomendado)
+
+1. Conecta tu repositorio a Vercel
+2. Configura las variables de entorno
+3. Despliega automáticamente
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 🙏 Agradecimientos
+
+- [Next.js](https://nextjs.org) - Framework React
+- [Better Auth](https://better-auth.com) - Autenticación
+- [Drizzle ORM](https://orm.drizzle.team) - ORM TypeScript
+- [Turso](https://turso.tech) - Base de datos SQLite
+- [Shadcn/ui](https://ui.shadcn.com) - Componentes accesibles
+- [Tailwind CSS](https://tailwindcss.com) - Framework CSS
+
+---
+
+**¿Necesitas ayuda?** Abre un issue en el repositorio o contáctame.
