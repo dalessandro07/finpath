@@ -61,8 +61,8 @@ TURSO_CONNECTION_URL=your_turso_connection_url
 TURSO_AUTH_TOKEN=your_turso_auth_token
 
 # Better Auth
-AUTH_SECRET=your_auth_secret_key
-AUTH_URL=http://localhost:3000
+BETTER_AUTH_SECRET=your_auth_secret_key
+BETTER_AUTH_URL=http://localhost:3000
 
 # OAuth Providers (opcional)
 GOOGLE_CLIENT_ID=your_google_client_id
