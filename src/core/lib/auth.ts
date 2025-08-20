@@ -9,14 +9,12 @@ export const auth = betterAuth({
     provider: 'sqlite',
     schema
   }),
-  emailAndPassword: {
-    enabled: true
-  },
-  /* socialProviders: {
+  socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+      provider: 'select_account',
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
     }
-  }, */
+  },
   plugins: [nextCookies()]
 })
