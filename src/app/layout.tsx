@@ -25,7 +25,7 @@ export default function RootLayout ({
         <meta name="apple-mobile-web-app-title" content={APP_NAME} />
       </head>
       <body
-        className={`${inter.variable} antialiased dark`}
+        className={`${inter.variable} antialiased`}
       >
         <div>
           {children}
