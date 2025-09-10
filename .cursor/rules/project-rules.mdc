@@ -92,7 +92,7 @@ Server Components
 
 ### UI and Styling
 Component Libraries
-- Use Shadcn UI for consistent, accessible component design.
+- Use Shadcn UI for consistent, accessible component design. (command to install: example: bunx --bun shadcn@latest add button)
 - Integrate Radix UI primitives for customizable, accessible UI elements.
 - Apply composition patterns to create modular, reusable components.
 
