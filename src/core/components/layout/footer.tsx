@@ -1,73 +1,112 @@
-import { Button } from '@/core/components/ui/button'
-import { APP_DESCRIPTION, APP_NAME } from '@/core/lib/constants'
+import { APP_NAME } from '@/core/lib/constants'
 import Link from 'next/link'
 
 export default function Footer () {
   return (
-    <footer className="bg-primary text-primary-foreground py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 lowercase">
-              {APP_NAME}
-            </h3>
-            <p className="text-primary-foreground/80 mb-6 max-w-md leading-relaxed">
-              {APP_DESCRIPTION}
-            </p>
-            <div className="text-sm text-primary-foreground/60">
-              <p>© {new Date().getFullYear()} {APP_NAME}. Todos los derechos reservados.</p>
-            </div>
-          </div>
+    <footer className="py-20 px-4 bg-primary text-primary-foreground">
+      <div className="max-w-4xl mx-auto">
+        {/* Main Content */}
+        <div className="text-center mb-16">
+          <h3 className="text-4xl font-bold mb-6 lowercase">
+            {APP_NAME}
+          </h3>
+          <p className="text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+            Tu camino hacia la libertad financiera comienza aquí
+          </p>
+        </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Enlaces</h4>
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-3">Producto</h4>
             <ul className="space-y-2">
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/nosotros">Nosotros</Link>
-                </Button>
+                <Link href="#beneficios" className="text-sm">
+                  Beneficios
+                </Link>
               </li>
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/servicios">Servicios</Link>
-                </Button>
+                <Link href="#herramientas" className="text-sm">
+                  Herramientas
+                </Link>
               </li>
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/contacto">Contacto</Link>
-                </Button>
-              </li>
-              <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/demo">Demo</Link>
-                </Button>
+                <Link href="/demo" className="text-sm">
+                  Demo
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-3">Comunidad</h4>
             <ul className="space-y-2">
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/terminos">Términos de Servicio</Link>
-                </Button>
+                <Link href="#testimonios" className="text-sm">
+                  Testimonios
+                </Link>
               </li>
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/privacidad">Política de Privacidad</Link>
-                </Button>
+                <Link href="/blog" className="text-sm">
+                  Blog
+                </Link>
               </li>
               <li>
-                <Button asChild variant="link" className="p-0 h-auto justify-start text-primary-foreground/80 hover:text-primary-foreground">
-                  <Link href="/cookies">Política de Cookies</Link>
-                </Button>
+                <Link href="/ayuda" className="text-sm">
+                  Ayuda
+                </Link>
               </li>
             </ul>
           </div>
+
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-3">Empresa</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/nosotros" className="text-sm">
+                  Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="/carreras" className="text-sm">
+                  Carreras
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="text-sm">
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-3">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/terminos" className="text-sm">
+                  Términos
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacidad" className="text-sm">
+                  Privacidad
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookies" className="text-sm">
+                  Cookies
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-muted pt-8 text-center">
+          <p className="text-sm">
+            © {new Date().getFullYear()} {APP_NAME}. Transformando vidas financieras.
+          </p>
         </div>
       </div>
     </footer>
