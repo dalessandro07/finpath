@@ -97,11 +97,11 @@ export default function RegisterForm () {
             />
             <span className="text-sm text-muted-foreground">
               Acepto los{' '}
-              <Link href="/terminos" className="text-primary hover:underline">
+              <Link href="/terminos" target="_blank" className="text-primary hover:underline">
                 Términos de Servicio
               </Link>{' '}
               y la{' '}
-              <Link href="/privacidad" className="text-primary hover:underline">
+              <Link href="/privacidad" target="_blank" className="text-primary hover:underline">
                 Política de Privacidad
               </Link>
             </span>

@@ -21,12 +21,12 @@ export default function Footer () {
             <h4 className="font-semibold mb-3">Producto</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#beneficios" className="text-sm">
+                <Link href="/#beneficios" className="text-sm">
                   Beneficios
                 </Link>
               </li>
               <li>
-                <Link href="#herramientas" className="text-sm">
+                <Link href="/#herramientas" className="text-sm">
                   Herramientas
                 </Link>
               </li>
@@ -42,7 +42,7 @@ export default function Footer () {
             <h4 className="font-semibold mb-3">Comunidad</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#testimonios" className="text-sm">
+                <Link href="/#testimonios" className="text-sm">
                   Testimonios
                 </Link>
               </li>
