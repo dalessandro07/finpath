@@ -11,9 +11,6 @@ export const APP_SLOGAN = 'Tu camino hacia la libertad financiera'
 
 export const APP_URL = 'http://finpath-efsrtv.vercel.app'
 
-//* AUTH
-export const USER_ROLES = { ADMIN: 'admin', USER: 'user' } as const
-
 //* LANDING PAGE CONTENT
 export const INTRO_CONTENT = {
   title: '¿Qué es la educación financiera?',

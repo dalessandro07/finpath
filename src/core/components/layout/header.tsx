@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Header () {
   return (
-    <header className='flex items-center justify-between border-b-2 max-w-6xl mx-auto py-2'>
+    <header className='flex items-center justify-between border-b-2 max-w-6xl mx-auto py-2 px-5 lg:px-0'>
       <p className='lowercase text-lg font-black text-center text-balance'>
         {APP_NAME}
       </p>

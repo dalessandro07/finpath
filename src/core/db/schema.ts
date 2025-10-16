@@ -1,5 +1,7 @@
-import { USER_ROLES } from '@/core/lib/constants'
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+
+//* AUTH
+export const USER_ROLES = { ADMIN: 'admin', USER: 'user' } as const
 
 export type UserRole = typeof USER_ROLES[keyof typeof USER_ROLES]
 
