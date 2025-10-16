@@ -70,21 +70,17 @@ export default function DeleteTransactionDialog ({
     )
   }
 
-  const triggerButton = (
-    <Button
-      variant="ghost"
-      size="sm"
-      className="h-8 w-8 p-0 text-muted-foreground hover:text-red-500 hover:bg-red-50 transition-colors"
-    >
-      <Trash2 className="h-4 w-4" />
-    </Button>
-  )
-
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          {triggerButton}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 p-0 text-muted-foreground hover:text-red-500 hover:bg-red-50 transition-colors"
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -135,7 +131,13 @@ export default function DeleteTransactionDialog ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        {triggerButton}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-8 w-8 p-0 text-muted-foreground hover:text-red-500 hover:bg-red-50 transition-colors"
+        >
+          <Trash2 className="h-4 w-4" />
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">

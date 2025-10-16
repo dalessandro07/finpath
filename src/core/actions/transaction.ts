@@ -77,6 +77,88 @@ export async function actionCreateTransaction (initialState: unknown, formData: 
 }
 
 //* UPDATE TRANSACTION
+export async function actionUpdateTransaction (initialState: unknown, formData: FormData) {
+  const { user } = await verifySession()
+
+  const id = formData.get('id') as string
+  const amount = formData.get('amount') as string
+  const type = formData.get('type') as TransactionType
+  const description = formData.get('description') as string
+
+  // Validaciones
+  if (!id || !amount || !type || !description) {
+    return {
+      error: 400,
+      message: 'Todos los campos son requeridos'
+    }
+  }
+
+  const amountNumber = parseFloat(amount)
+  if (isNaN(amountNumber) || amountNumber <= 0) {
+    return {
+      error: 400,
+      message: 'El monto debe ser un número válido mayor a 0'
+    }
+  }
+
+  if (!Object.values(TRANSACTION_TYPES).includes(type)) {
+    return {
+      error: 400,
+      message: 'Tipo de transacción inválido'
+    }
+  }
+
+  try {
+    // Verificar que la transacción pertenece al usuario antes de actualizar
+    const existingTransaction = await db
+      .select()
+      .from(transaction)
+      .where(eq(transaction.id, id))
+      .limit(1)
+
+    if (existingTransaction.length === 0) {
+      return {
+        error: 404,
+        message: 'Transacción no encontrada'
+      }
+    }
+
+    if (existingTransaction[0].userId !== user.id) {
+      return {
+        error: 403,
+        message: 'No tienes permisos para editar esta transacción'
+      }
+    }
+
+    // Convertir el monto a centavos para almacenamiento
+    const amountInCents = Math.round(amountNumber * 100)
+
+    const updatedTransaction = await db
+      .update(transaction)
+      .set({
+        amount: amountInCents,
+        description,
+        type,
+        updatedAt: new Date()
+      })
+      .where(eq(transaction.id, id))
+      .returning()
+
+    revalidatePath('/dashboard')
+
+    return {
+      success: true,
+      message: 'Transacción actualizada exitosamente',
+      data: updatedTransaction[0]
+    }
+  } catch (error) {
+    console.error('Error updating transaction:', error)
+    return {
+      error: 500,
+      message: 'Error al actualizar la transacción'
+    }
+  }
+}
 
 //* DELETE TRANSACTION
 export async function actionDeleteTransaction (initialState: unknown, formData: FormData) {
