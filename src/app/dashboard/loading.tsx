@@ -10,7 +10,7 @@ const BalanceCardSkeleton = () => (
 const TransactionItemSkeleton = () => (
   <div className="flex items-center justify-between p-4 border rounded-lg">
     <div className="flex items-center gap-3">
-      <Skeleton className="h-10 w-10 rounded-full" />
+      <Skeleton className="h-7 w-7 rounded-full" />
       <div className="flex flex-col gap-2">
         <Skeleton className="h-4 w-32" />
         <Skeleton className="h-3 w-20" />
@@ -44,7 +44,7 @@ export default function DashboardLoading () {
         <Skeleton className="h-6 w-32" />
 
         {/* Add transaction button skeleton */}
-        <Skeleton className="h-10 w-40" />
+        <Skeleton className="h-9 w-full" />
 
         {/* Transactions list skeleton */}
         <div className="w-full flex flex-col gap-2">

@@ -93,19 +93,17 @@ export default function Footer () {
                   Privacidad
                 </Link>
               </li>
-              <li>
-                <Link href="/cookies" className="text-sm">
-                  Cookies
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-muted pt-8 text-center">
+        <div className="border-t border-muted pt-8 text-center space-y-2">
           <p className="text-sm">
             © {new Date().getFullYear()} {APP_NAME}. Transformando vidas financieras.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Esta plataforma inició como proyecto final para el curso de EFSRT V en Cibertec.
           </p>
         </div>
       </div>

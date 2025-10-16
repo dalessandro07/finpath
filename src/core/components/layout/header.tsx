@@ -1,9 +1,9 @@
 'use client'
 
 import { Button } from '@/core/components/ui/button'
+import Logo from '@/core/components/ui/logo'
 import { useIsMobile } from '@/core/hooks/use-mobile'
 import { authClient } from '@/core/lib/auth-client'
-import { APP_NAME } from '@/core/lib/constants'
 import Link from 'next/link'
 import MobileHeader from './mobile-header'
 
@@ -24,9 +24,7 @@ export default function Header () {
 
   return (
     <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 py-2 px-5 lg:px-7'>
-      <Link href='/' className='lowercase text-lg font-black text-center text-balance hover:opacity-80 transition-opacity'>
-        {APP_NAME}
-      </Link>
+      <Logo href='/' />
 
       {isMobile ? (
         <MobileHeader navigationItems={navigationItems} />

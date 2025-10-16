@@ -248,10 +248,10 @@ export async function actionGetStatistics () {
       .select({ count: sql<number>`count(*)` })
       .from(transaction)
 
-    // Calcular el total de dinero (suma de ingresos menos gastos)
+    // Calcular el total de dinero registrado (suma absoluta de todos los montos)
     const totalMoneyResult = await db
       .select({
-        total: sql<number>`sum(case when type = 'income' then amount else -amount end)`
+        total: sql<number>`sum(amount)`
       })
       .from(transaction)
 

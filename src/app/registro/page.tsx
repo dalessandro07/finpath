@@ -1,5 +1,5 @@
 import RegisterForm from '@/core/components/auth/register-form'
-import { APP_NAME } from '@/core/lib/constants'
+import Logo from '@/core/components/ui/logo'
 
 export default function RegisterPage () {
   return (
@@ -7,9 +7,7 @@ export default function RegisterPage () {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold lowercase">
-            {APP_NAME}
-          </h1>
+          <Logo href='/' />
         </div>
 
         <RegisterForm />

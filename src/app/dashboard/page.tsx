@@ -9,6 +9,8 @@ import { desc, eq } from 'drizzle-orm'
 export default async function DashboardPage () {
   const { user } = await verifySession()
 
+  const firstName = user.name?.split(' ')[0]
+
   const transactions = await db
     .select()
     .from(transaction)
@@ -20,7 +22,7 @@ export default async function DashboardPage () {
       <header>
         <h1 className="text-2xl font-semibold">Dashboard</h1>
         <p className="text-sm text-muted-foreground">
-          Bienvenido de nuevo, {user.name}
+          Bienvenido, {firstName}
         </p>
       </header>
 

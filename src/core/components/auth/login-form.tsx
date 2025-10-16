@@ -14,6 +14,7 @@ import { ArrowRightIcon, LockIcon, MailIcon } from 'lucide-react'
 import Form from 'next/form'
 import Link from 'next/link'
 import { useActionState } from 'react'
+import GoogleLoginButton from './google-login-button'
 
 export default function LoginForm () {
   const [state, formAction, isPending] = useActionState(actionLogin, null)
@@ -27,6 +28,23 @@ export default function LoginForm () {
         <p className="text-muted-foreground">
           Accede a tu cuenta de FinPath
         </p>
+      </div>
+
+      <div className="mb-6">
+        <GoogleLoginButton />
+      </div>
+
+      <div className="mb-6">
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background px-2 text-muted-foreground">
+              O usa tu correo
+            </span>
+          </div>
+        </div>
       </div>
 
       <Form action={formAction} className="space-y-6">
