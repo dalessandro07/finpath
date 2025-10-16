@@ -19,9 +19,6 @@ export const APP_SLOGAN = 'Tu camino hacia la libertad financiera'
 
 export const APP_URL = 'http://finpath-efsrtv.vercel.app'
 
-//* AUTH
-export const USER_ROLES = { ADMIN: 'admin', USER: 'user' } as const
-
 //* LANDING PAGE CONTENT
 export const INTRO_CONTENT = {
   title: '¿Qué es la educación financiera?',
@@ -130,5 +127,104 @@ export const CTA_CONTENT = {
   title: 'Comienza tu camino hacia la libertad financiera hoy',
   subtitle: 'Únete a miles de personas que ya están transformando su vida financiera',
   primaryButton: 'Comenzar Gratis',
-  secondaryButton: 'Ver Demo'
+  secondaryButton: 'Habla con un experto'
+}
+
+//* LEGAL CONTENT
+export const TERMS_OF_SERVICE = {
+  title: 'Términos de Servicio',
+  lastUpdated: `Última actualización: ${new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+  sections: [
+    {
+      title: '1. Aceptación de los Términos',
+      content: 'Al acceder y utilizar FinPath, usted acepta estar sujeto a estos Términos de Servicio y todas las leyes y regulaciones aplicables. Si no está de acuerdo con alguno de estos términos, no debe utilizar nuestros servicios.'
+    },
+    {
+      title: '2. Descripción del Servicio',
+      content: 'FinPath es una plataforma digital de educación financiera que ofrece herramientas interactivas, cursos personalizados, diagnóstico financiero inteligente y recursos educativos para ayudar a los usuarios a mejorar su educación financiera y alcanzar sus metas económicas.'
+    },
+    {
+      title: '3. Uso Aceptable',
+      content: 'Usted se compromete a utilizar FinPath únicamente para fines legales y de acuerdo con estos términos. Está prohibido el uso de la plataforma para actividades ilegales, fraudulentas o que violen los derechos de terceros.'
+    },
+    {
+      title: '4. Cuenta de Usuario',
+      content: 'Para acceder a ciertas funcionalidades, debe crear una cuenta proporcionando información precisa y actualizada. Es responsable de mantener la confidencialidad de sus credenciales y de todas las actividades que ocurran bajo su cuenta.'
+    },
+    {
+      title: '5. Contenido y Propiedad Intelectual',
+      content: 'Todo el contenido de FinPath, incluyendo textos, gráficos, logos, imágenes y software, es propiedad de FinPath o sus licenciantes y está protegido por las leyes de propiedad intelectual. No puede reproducir, distribuir o crear obras derivadas sin autorización.'
+    },
+    {
+      title: '6. Privacidad y Protección de Datos',
+      content: 'Su privacidad es importante para nosotros. El uso de sus datos personales se rige por nuestra Política de Privacidad, que forma parte integral de estos términos.'
+    },
+    {
+      title: '7. Limitación de Responsabilidad',
+      content: 'FinPath se proporciona "tal como está" sin garantías de ningún tipo. No seremos responsables por daños directos, indirectos, incidentales o consecuenciales que puedan resultar del uso de nuestros servicios.'
+    },
+    {
+      title: '8. Modificaciones',
+      content: 'Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en la plataforma. Su uso continuado constituye aceptación de los términos modificados.'
+    },
+    {
+      title: '9. Terminación',
+      content: 'Podemos suspender o terminar su acceso a FinPath en cualquier momento, con o sin causa, con o sin previo aviso, por cualquier motivo, incluyendo la violación de estos términos.'
+    },
+    {
+      title: '10. Ley Aplicable',
+      content: 'Estos términos se rigen por las leyes de Perú. Cualquier disputa será resuelta en los tribunales competentes de Lima, Perú.'
+    }
+  ]
+}
+
+export const PRIVACY_POLICY = {
+  title: 'Política de Privacidad',
+  lastUpdated: `Última actualización: ${new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+  sections: [
+    {
+      title: '1. Información que Recopilamos',
+      content: 'Recopilamos información que usted nos proporciona directamente, como nombre, dirección de correo electrónico, información de contacto y datos financieros que decida compartir para personalizar su experiencia educativa.'
+    },
+    {
+      title: '2. Cómo Utilizamos su Información',
+      content: 'Utilizamos su información para proporcionar y mejorar nuestros servicios, personalizar su experiencia educativa, comunicarnos con usted, procesar transacciones y cumplir con obligaciones legales.'
+    },
+    {
+      title: '3. Compartir Información',
+      content: 'No vendemos, alquilamos ni compartimos su información personal con terceros, excepto cuando sea necesario para proporcionar nuestros servicios, cumplir con la ley o proteger nuestros derechos.'
+    },
+    {
+      title: '4. Seguridad de los Datos',
+      content: 'Implementamos medidas de seguridad técnicas, administrativas y físicas apropiadas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción.'
+    },
+    {
+      title: '5. Cookies y Tecnologías Similares',
+      content: 'Utilizamos cookies y tecnologías similares para mejorar su experiencia, analizar el uso de nuestros servicios y personalizar el contenido. Puede controlar el uso de cookies a través de la configuración de su navegador.'
+    },
+    {
+      title: '6. Retención de Datos',
+      content: 'Conservamos su información personal durante el tiempo necesario para cumplir con los propósitos descritos en esta política, a menos que la ley requiera un período de retención más largo.'
+    },
+    {
+      title: '7. Sus Derechos',
+      content: 'Tiene derecho a acceder, corregir, actualizar o eliminar su información personal. También puede optar por no recibir comunicaciones de marketing y solicitar una copia de sus datos personales.'
+    },
+    {
+      title: '8. Transferencias Internacionales',
+      content: 'Sus datos pueden ser transferidos y procesados en países distintos al suyo. Nos aseguramos de que dichas transferencias cumplan con las leyes de protección de datos aplicables.'
+    },
+    {
+      title: '9. Menores de Edad',
+      content: 'Nuestros servicios no están dirigidos a menores de 18 años. No recopilamos conscientemente información personal de menores de edad sin el consentimiento de sus padres o tutores.'
+    },
+    {
+      title: '10. Cambios a esta Política',
+      content: 'Podemos actualizar esta Política de Privacidad ocasionalmente. Le notificaremos sobre cambios significativos publicando la nueva política en nuestro sitio web con una fecha de "última actualización" actualizada.'
+    },
+    {
+      title: '11. Contacto',
+      content: 'Si tiene preguntas sobre esta Política de Privacidad o sobre cómo manejamos su información personal, puede contactarnos a través de nuestra página de contacto o enviando un correo electrónico a privacidad@finpath.com.'
+    }
+  ]
 }

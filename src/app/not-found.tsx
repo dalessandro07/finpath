@@ -1,9 +1,15 @@
+'use client'
+
 import { Button } from '@/core/components/ui/button'
 import { APP_NAME } from '@/core/lib/constants'
 import { ArrowLeftIcon, HomeIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default function NotFound () {
+  const goBack = () => {
+    window.history.back()
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-2xl mx-auto text-center">
@@ -36,11 +42,9 @@ export default function NotFound () {
             </Link>
           </Button>
 
-          <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-            <Link href="javascript:history.back()">
-              <ArrowLeftIcon className="w-5 h-5 mr-2" />
-              Volver Atrás
-            </Link>
+          <Button onClick={goBack} variant="outline" size="lg" className="text-lg px-8 py-6">
+            <ArrowLeftIcon className="w-5 h-5 mr-2" />
+            Volver Atrás
           </Button>
         </div>
 

@@ -23,7 +23,7 @@ export default function CTASection () {
         </Button>
 
         <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-          <Link href="/demo">
+          <Link href="/contacto">
             {CTA_CONTENT.secondaryButton}
           </Link>
         </Button>

@@ -1,5 +1,7 @@
-import { USER_ROLES } from '@/core/lib/constants'
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+
+//* AUTH
+export const USER_ROLES = { ADMIN: 'admin', USER: 'user' } as const
 
 export type UserRole = typeof USER_ROLES[keyof typeof USER_ROLES]
 
@@ -58,3 +60,33 @@ export const verification = sqliteTable('verification', {
 })
 
 //? APP
+//* Transactions table
+export const transaction = sqliteTable('transaction', {
+  id: text('id').primaryKey(),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
+  amount: integer('amount').notNull(),
+  description: text('description').notNull(),
+  type: text('type').notNull(),
+  status: text('status').notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date())
+})
+
+//! TIPOS
+
+export type InsertUser = typeof user.$inferInsert
+export type SelectUser = typeof user.$inferSelect
+
+export const TRANSACTION_TYPES = {
+  INCOME: 'income',
+  EXPENSE: 'expense'
+} as const
+
+export const TRANSACTION_STATUS = {
+  PENDING: 'pending',
+  COMPLETED: 'completed',
+  CANCELLED: 'cancelled'
+} as const
+
+export type InsertTransaction = typeof transaction.$inferInsert
+export type SelectTransaction = typeof transaction.$inferSelect
