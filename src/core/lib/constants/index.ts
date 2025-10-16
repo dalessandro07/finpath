@@ -2,6 +2,14 @@ import cursosImage from '@/public/cursos-personalizados.webp'
 import diagnosticoImage from '@/public/diagnostico.webp'
 import historialImage from '@/public/historial-crediticio.webp'
 import seguimientoImage from '@/public/seguimiento.webp'
+import barGif from '@/public/BAR.gif'
+import billGif from '@/public/BILL.gif'
+import organizationGif from '@/public/ORGANIZATION.gif'
+import posGif from '@/public/POS.gif'
+import saveGif from '@/public/SAVE.gif'
+import spendGif from '@/public/SPEND.gif'
+import buyGif from '@/public/BUY.gif'
+import { Save } from 'lucide-react'
 
 //* APP INFO
 export const APP_NAME = 'FinPath'
@@ -65,6 +73,29 @@ export const FEATURES = [
     title: 'Mejora tu historial crediticio',
     description: 'Aprende estrategias efectivas para construir y mejorar tu puntaje crediticio de manera sostenible.',
     image: historialImage
+  }
+]
+
+export const CLASES = [
+  {
+    title: 'Construye tu Base: El Poder del Ahorro',
+    description: 'Inicia aquí tu camino hacia la salud financiera. Descubre por qué el ahorro es el cimiento indispensable para tus metas y aprende las claves prácticas para construir un futuro seguro a partir de hoy.',
+    image: saveGif
+  },
+  {
+    title: 'Pon tu Dinero a Trabajar: Introducción a la Inversión',
+    description: 'Es hora de que tus ahorros crezcan y trabajen para ti. Aprende a dar el siguiente paso hacia la inversión de forma segura e informada, convirtiendo tu capital en un motor para construir tu patrimonio.',
+    image: spendGif
+  },
+  {
+    title: 'Toma el Control: Organiza tus Ingresos y Gastos',
+    description: 'El secreto de la riqueza está en cómo administras tu dinero, no solo en cuánto ganas. Te enseñaremos métodos sencillos para registrar tus finanzas y darte el control total para tomar decisiones inteligentes.',
+    image: organizationGif
+  },
+  {
+    title: 'Compra con Propósito: El Arte de las Decisiones Inteligentes',
+    description: 'Cada sol que gastas puede acercarte o alejarte de tus metas. Aprende a diferenciar entre necesidades y deseos para evitar compras impulsivas y asegurar que cada decisión financiera te beneficie.',
+    image: posGif
   }
 ]
 

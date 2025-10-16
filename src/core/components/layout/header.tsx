@@ -26,6 +26,32 @@ export default function Header () {
     <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 py-2 px-5 lg:px-7'>
       <Logo href='/' />
 
+
+      <nav>
+        <ul className='flex items-center gap-5'>
+          <li>
+            <Button asChild variant='link'>
+              <Link href='#beneficios'>Beneficios</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild variant='link'>
+              <Link href='#herramientas'>Herramientas</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild variant='link'>
+              <Link href='#clases'>Clases</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild variant='link'>
+              <Link href='#testimonios'>Testimonios</Link>
+            </Button>
+          </li>
+        </ul>
+      </nav>
+
       {isMobile ? (
         <MobileHeader navigationItems={navigationItems} />
       ) : (
@@ -41,6 +67,7 @@ export default function Header () {
               ))}
             </ul>
           </nav>
+
 
           {!user ? (
             <Button asChild>
