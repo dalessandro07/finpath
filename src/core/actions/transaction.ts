@@ -51,6 +51,7 @@ export async function actionCreateTransaction (initialState: unknown, formData: 
       id: nanoid(),
       userId: user.id,
       amount: amountInCents,
+      description,
       type,
       status: TRANSACTION_STATUS.COMPLETED,
       createdAt: new Date(),
@@ -73,6 +74,60 @@ export async function actionCreateTransaction (initialState: unknown, formData: 
   }
 
   return result
+}
+
+//* UPDATE TRANSACTION
+
+//* DELETE TRANSACTION
+export async function actionDeleteTransaction (initialState: unknown, formData: FormData) {
+  const { user } = await verifySession()
+  const id = formData.get('id') as string
+
+  // Validaciones
+  if (!id) {
+    return {
+      error: 400,
+      message: 'ID de transacción requerido'
+    }
+  }
+
+  try {
+    // Verificar que la transacción pertenece al usuario antes de eliminar
+    const existingTransaction = await db
+      .select()
+      .from(transaction)
+      .where(eq(transaction.id, id))
+      .limit(1)
+
+    if (existingTransaction.length === 0) {
+      return {
+        error: 404,
+        message: 'Transacción no encontrada'
+      }
+    }
+
+    if (existingTransaction[0].userId !== user.id) {
+      return {
+        error: 403,
+        message: 'No tienes permisos para eliminar esta transacción'
+      }
+    }
+
+    // Eliminar la transacción
+    await db.delete(transaction).where(eq(transaction.id, id))
+    revalidatePath('/dashboard')
+
+    return {
+      success: true,
+      message: 'Transacción eliminada exitosamente'
+    }
+  } catch (error) {
+    console.error('Error deleting transaction:', error)
+    return {
+      error: 500,
+      message: 'Error al eliminar la transacción'
+    }
+  }
 }
 
 //* GET USER TRANSACTIONS

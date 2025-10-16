@@ -65,6 +65,7 @@ export const transaction = sqliteTable('transaction', {
   id: text('id').primaryKey(),
   userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
   amount: integer('amount').notNull(),
+  description: text('description').notNull(),
   type: text('type').notNull(),
   status: text('status').notNull(),
   createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
