@@ -23,6 +23,11 @@ export default function Header () {
           </li>
           <li>
             <Button asChild variant='link'>
+              <Link href='#clases'>Clases</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild variant='link'>
               <Link href='#testimonios'>Testimonios</Link>
             </Button>
           </li>
