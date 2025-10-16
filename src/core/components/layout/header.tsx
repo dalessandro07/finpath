@@ -22,7 +22,7 @@ export default function Header () {
   const { user } = session ?? {}
 
   return (
-    <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 max-w-6xl mx-auto py-2 px-5 lg:px-0'>
+    <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 py-2 px-5 lg:px-7'>
       <Link href='/' className='lowercase text-lg font-black text-center text-balance hover:opacity-80 transition-opacity'>
         {APP_NAME}
       </Link>

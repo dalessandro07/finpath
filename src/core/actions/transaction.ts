@@ -1,9 +1,9 @@
 'use server'
 
 import { db } from '@/core/db'
-import { transaction, TRANSACTION_STATUS, TRANSACTION_TYPES } from '@/core/db/schema'
+import { transaction, TRANSACTION_STATUS, TRANSACTION_TYPES, user } from '@/core/db/schema'
 import { verifySession } from '@/core/lib/dal'
-import { desc, eq } from 'drizzle-orm'
+import { desc, eq, sql } from 'drizzle-orm'
 import { nanoid } from 'nanoid'
 import { revalidatePath } from 'next/cache'
 
@@ -232,6 +232,46 @@ export async function actionGetUserTransactions () {
     return {
       error: 500,
       message: 'Error al obtener las transacciones'
+    }
+  }
+}
+
+//* GET STATISTICS
+export async function actionGetStatistics () {
+  try {
+    const userCountResult = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(user)
+      .where(eq(user.isActive, true))
+
+    const transactionCountResult = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(transaction)
+
+    // Calcular el total de dinero (suma de ingresos menos gastos)
+    const totalMoneyResult = await db
+      .select({
+        total: sql<number>`sum(case when type = 'income' then amount else -amount end)`
+      })
+      .from(transaction)
+
+    const userCount = userCountResult[0]?.count || 0
+    const transactionCount = transactionCountResult[0]?.count || 0
+    const totalMoney = totalMoneyResult[0]?.total || 0
+
+    return {
+      success: true,
+      data: {
+        totalUsers: userCount,
+        totalTransactions: transactionCount,
+        totalMoney: totalMoney
+      }
+    }
+  } catch (error) {
+    console.error('Error fetching statistics:', error)
+    return {
+      error: 500,
+      message: 'Error al obtener las estadísticas'
     }
   }
 }
