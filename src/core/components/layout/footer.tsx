@@ -1,3 +1,4 @@
+import Logo from '@/core/components/ui/logo'
 import { APP_NAME } from '@/core/lib/constants'
 import Link from 'next/link'
 
@@ -7,9 +8,7 @@ export default function Footer () {
       <div className="max-w-4xl mx-auto">
         {/* Main Content */}
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold mb-6 lowercase">
-            {APP_NAME}
-          </h3>
+          <Logo href='/' size='lg' color='white' />
           <p className="text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             Tu camino hacia la libertad financiera comienza aquí
           </p>

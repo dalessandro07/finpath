@@ -26,7 +26,7 @@ interface LogoProps {
   /**
    * Color del logo
    */
-  color?: 'default' | 'primary' | 'secondary' | 'muted'
+  color?: 'default' | 'primary' | 'secondary' | 'muted' | 'white'
 }
 
 const sizeClasses = {
@@ -40,7 +40,8 @@ const colorClasses = {
   default: 'text-foreground',
   primary: 'text-primary',
   secondary: 'text-secondary-foreground',
-  muted: 'text-muted-foreground'
+  muted: 'text-muted-foreground',
+  white: 'text-white'
 }
 
 const LogoIcon = ({ size = 'md' }: { size?: LogoProps['size'] }) => {
