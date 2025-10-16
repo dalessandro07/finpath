@@ -2,6 +2,7 @@
 
 import { Button } from '@/core/components/ui/button'
 import { useIsMobile } from '@/core/hooks/use-mobile'
+import { authClient } from '@/core/lib/auth-client'
 import { APP_NAME } from '@/core/lib/constants'
 import Link from 'next/link'
 import MobileHeader from './mobile-header'
@@ -9,12 +10,16 @@ import MobileHeader from './mobile-header'
 export default function Header () {
   const isMobile = useIsMobile()
 
+  const { data: session } = authClient.useSession()
+
   const navigationItems = [
     { href: '/#beneficios', label: 'Beneficios' },
     { href: '/#herramientas', label: 'Herramientas' },
     { href: '/#testimonios', label: 'Testimonios' },
     { href: '/contacto', label: 'Contacto' }
   ]
+
+  const { user } = session ?? {}
 
   return (
     <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 max-w-6xl mx-auto py-2 px-5 lg:px-0'>
@@ -38,9 +43,15 @@ export default function Header () {
             </ul>
           </nav>
 
-          <Button asChild>
-            <Link href='/registro'>Comenzar Gratis</Link>
-          </Button>
+          {!user ? (
+            <Button asChild>
+              <Link href='/registro'>Comenzar Gratis</Link>
+            </Button>
+          ) : (
+            <Button asChild>
+              <Link href='/dashboard'>Dashboard</Link>
+            </Button>
+          )}
         </>
       )}
     </header>

@@ -1,3 +1,5 @@
+'use client'
+
 import BtnLogout from '@/core/components/auth/btn-logout'
 import { Avatar, AvatarFallback, AvatarImage } from '@/core/components/ui/avatar'
 import {
@@ -9,12 +11,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/core/components/ui/dropdown-menu'
-import { verifySession } from '@/core/lib/dal'
+import { authClient } from '@/core/lib/auth-client'
 import { CreditCardIcon, Settings, User } from 'lucide-react'
 import Link from 'next/link'
 
-export default async function UserDropdownMenu () {
-  const { user } = await verifySession()
+export default function UserDropdownMenu () {
+  const { data: session } = authClient.useSession()
+  const { user } = session ?? {}
+
+  if (!user) return null
 
   const userInitials = user.name?.split(' ').map(name => name[0]).join('')
 

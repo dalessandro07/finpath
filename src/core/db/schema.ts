@@ -60,3 +60,32 @@ export const verification = sqliteTable('verification', {
 })
 
 //? APP
+//* Transactions table
+export const transaction = sqliteTable('transaction', {
+  id: text('id').primaryKey(),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
+  amount: integer('amount').notNull(),
+  type: text('type').notNull(),
+  status: text('status').notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date())
+})
+
+//! TIPOS
+
+export type InsertUser = typeof user.$inferInsert
+export type SelectUser = typeof user.$inferSelect
+
+export const TRANSACTION_TYPES = {
+  INCOME: 'income',
+  EXPENSE: 'expense'
+} as const
+
+export const TRANSACTION_STATUS = {
+  PENDING: 'pending',
+  COMPLETED: 'completed',
+  CANCELLED: 'cancelled'
+} as const
+
+export type InsertTransaction = typeof transaction.$inferInsert
+export type SelectTransaction = typeof transaction.$inferSelect

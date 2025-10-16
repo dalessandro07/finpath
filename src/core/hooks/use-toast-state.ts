@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { toast } from 'sonner'
 
 type ToastState = {
-  error: string | number | null
+  error?: string | number | null
   message: string
 } | null | undefined
 

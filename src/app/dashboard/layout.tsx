@@ -9,9 +9,9 @@ export default function DashboardLayout ({
   return (
     <SidebarProvider>
       <DashboardSidebar />
-      <main className="flex gap-2">
+      <main className="w-full flex gap-2">
         <SidebarTrigger />
-        <div className="py-2 sm:p-5">
+        <div className="w-full py-2 sm:p-5">
           {children}
         </div>
       </main>
