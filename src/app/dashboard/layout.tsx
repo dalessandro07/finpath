@@ -1,4 +1,4 @@
-import DashboardSidebar from '@/core/components/dashboard/sidebar'
+import DashboardSidebar from '@/core/components/dashboard/dashboard-sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/core/components/ui/sidebar'
 
 export default function DashboardLayout ({
@@ -9,9 +9,11 @@ export default function DashboardLayout ({
   return (
     <SidebarProvider>
       <DashboardSidebar />
-      <main>
+      <main className="flex gap-2">
         <SidebarTrigger />
-        {children}
+        <div className="py-2 sm:p-5">
+          {children}
+        </div>
       </main>
     </SidebarProvider>
   )

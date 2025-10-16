@@ -12,7 +12,7 @@ export default function BtnLogout () {
 
   return (
     <Form action={formAction}>
-      <Button variant="destructive" type="submit" disabled={isPending}>
+      <Button className="w-full rounded-none" variant="destructive" type="submit" disabled={isPending}>
         {isPending ? 'Cerrando sesión...' : 'Cerrar sesión'}
         {isPending ? <Spinner /> : <LogOut className="w-5 h-5 ml-2" />}
       </Button>

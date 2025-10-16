@@ -1,4 +1,4 @@
-import { Book, Home, Inbox } from 'lucide-react'
+import { Book, Home, Inbox, User } from 'lucide-react'
 
 import UserDropdownMenu from '@/core/components/dashboard/user-dropdown-menu'
 import {
@@ -30,6 +30,11 @@ const items = [
     title: 'Mis Cursos',
     url: '/dashboard/mis-cursos',
     icon: Book,
+  },
+  {
+    title: 'Perfil',
+    url: '/dashboard/perfil',
+    icon: User,
   }
 ]
 

@@ -10,6 +10,8 @@ import {
   DropdownMenuTrigger
 } from '@/core/components/ui/dropdown-menu'
 import { verifySession } from '@/core/lib/dal'
+import { CreditCardIcon, Settings, User } from 'lucide-react'
+import Link from 'next/link'
 
 export default async function UserDropdownMenu () {
   const { user } = await verifySession()
@@ -35,13 +37,18 @@ export default async function UserDropdownMenu () {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Perfil
+          <DropdownMenuItem asChild>
+            <Link href="/dashboard/perfil">
+              <User className="w-4 h-4" />
+              Perfil
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
+            <CreditCardIcon className="w-4 h-4" />
             Facturación
           </DropdownMenuItem>
           <DropdownMenuItem>
+            <Settings className="w-4 h-4" />
             Configuración
           </DropdownMenuItem>
         </DropdownMenuGroup>
