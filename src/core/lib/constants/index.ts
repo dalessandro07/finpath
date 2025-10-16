@@ -96,5 +96,5 @@ export const CTA_CONTENT = {
   title: 'Comienza tu camino hacia la libertad financiera hoy',
   subtitle: 'Únete a miles de personas que ya están transformando su vida financiera',
   primaryButton: 'Comenzar Gratis',
-  secondaryButton: 'Ver Demo'
+  secondaryButton: 'Habla con un experto'
 }

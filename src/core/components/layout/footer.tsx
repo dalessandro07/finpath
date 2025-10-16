@@ -31,8 +31,8 @@ export default function Footer () {
                 </Link>
               </li>
               <li>
-                <Link href="/demo" className="text-sm">
-                  Demo
+                <Link href="/contacto" className="text-sm">
+                  Contacto
                 </Link>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 'use server'
 
 import { auth } from '@/core/lib/auth'
+import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 //* LOGIN
@@ -119,4 +120,13 @@ export async function actionRegister (initialState: unknown, formData: FormData)
   }
 
   return result
+}
+
+//* LOGOUT
+export async function actionLogout () {
+  await auth.api.signOut({
+    headers: await headers()
+  })
+
+  redirect('/login')
 }
