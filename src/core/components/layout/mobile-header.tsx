@@ -2,6 +2,7 @@
 
 import { Button } from '@/core/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/core/components/ui/sheet'
+import { authClient } from '@/core/lib/auth-client'
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -14,6 +15,11 @@ interface MobileHeaderProps {
 }
 
 export default function MobileHeader ({ navigationItems }: MobileHeaderProps) {
+  const { data: session } = authClient.useSession()
+  const { user } = session ?? {}
+
+  const firstName = user?.name?.split(' ')[0]
+
   const [isOpen, setIsOpen] = useState(false)
 
   const handleLinkClick = () => {
@@ -44,13 +50,24 @@ export default function MobileHeader ({ navigationItems }: MobileHeaderProps) {
               <Link href={item.href}>{item.label}</Link>
             </Button>
           ))}
-          <Button
-            asChild
-            className='mt-4 h-14 px-6 rounded-none text-lg font-normal'
-            onClick={handleLinkClick}
-          >
-            <Link href='/registro'>Comenzar Gratis</Link>
-          </Button>
+
+          {user ? (
+            <Button
+              asChild
+              className='mt-4 h-14 px-6 rounded-none text-lg font-normal'
+              onClick={handleLinkClick}
+            >
+              <Link href='/dashboard'>Dashboard de {firstName}</Link>
+            </Button>
+          ) : (
+            <Button
+              asChild
+              className='mt-4 h-14 px-6 rounded-none text-lg font-normal'
+              onClick={handleLinkClick}
+            >
+              <Link href='/registro'>Comenzar Gratis</Link>
+            </Button>
+          )}
         </nav>
       </SheetContent>
     </Sheet>

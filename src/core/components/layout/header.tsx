@@ -11,6 +11,8 @@ export default function Header () {
   const isMobile = useIsMobile()
 
   const { data: session } = authClient.useSession()
+  const { user } = session ?? {}
+  const firstName = user?.name?.split(' ')[0]
 
   const navigationItems = [
     { href: '/#beneficios', label: 'Beneficios' },
@@ -19,7 +21,6 @@ export default function Header () {
     { href: '/contacto', label: 'Contacto' }
   ]
 
-  const { user } = session ?? {}
 
   return (
     <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 py-2 px-5 lg:px-7'>
@@ -49,7 +50,7 @@ export default function Header () {
             </Button>
           ) : (
             <Button asChild>
-              <Link href='/dashboard'>Dashboard</Link>
+              <Link href='/dashboard'>Dashboard de {firstName}</Link>
             </Button>
           )}
         </>
