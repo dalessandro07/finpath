@@ -1,4 +1,4 @@
-import { Book, Home, Inbox, User } from 'lucide-react'
+import { Book, Calculator, Home, Inbox, User } from 'lucide-react'
 
 import UserDropdownMenu from '@/core/components/dashboard/user-dropdown-menu'
 import {
@@ -25,6 +25,11 @@ const items = [
     title: 'Transacciones',
     url: '/dashboard/transacciones',
     icon: Inbox,
+  },
+  {
+    title: 'Calculadora',
+    url: '/dashboard/calculadora',
+    icon: Calculator,
   },
   {
     title: 'Mis Cursos',
