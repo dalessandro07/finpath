@@ -19,7 +19,6 @@ export default function Header () {
     { href: '/#herramientas', label: 'Herramientas' },
     { href: '/#clases', label: 'Clases' },
     { href: '/#testimonios', label: 'Testimonios' },
-    { href: '/#clases', label: 'Clases' },
     { href: '/contacto', label: 'Contacto' }
   ]
 

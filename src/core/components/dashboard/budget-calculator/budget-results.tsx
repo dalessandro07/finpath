@@ -32,7 +32,7 @@ export default function BudgetResults ({
           Análisis de tu situación financiera
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-6 max-h-[65vh] overflow-y-auto">
         <BudgetSummary
           totalIncome={totalIncome}
           totalExpenses={totalExpenses}

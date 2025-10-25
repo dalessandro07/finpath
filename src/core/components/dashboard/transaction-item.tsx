@@ -40,7 +40,7 @@ export default function TransactionItem ({ transaction }: TransactionItemProps) 
                 </p>
               </div>
 
-              <div className="flex-shrink-0 ml-4">
+              <div className="flex-shrink-0 ml-4 text-center">
                 {hasBeenUpdated ? (
                   <>
                     <p className="text-xs text-muted-foreground uppercase">
