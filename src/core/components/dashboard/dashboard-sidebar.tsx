@@ -1,4 +1,5 @@
-import { Book, Home, Inbox, User } from 'lucide-react'
+import { Book, Calculator, Home, Inbox, User } from 'lucide-react'
+import Link from 'next/link'
 
 import UserDropdownMenu from '@/core/components/dashboard/user-dropdown-menu'
 import {
@@ -27,6 +28,11 @@ const items = [
     icon: Inbox,
   },
   {
+    title: 'Calculadora',
+    url: '/dashboard/calculadora',
+    icon: Calculator,
+  },
+  {
     title: 'Mis Cursos',
     url: '/dashboard/mis-cursos',
     icon: Book,
@@ -43,7 +49,8 @@ export default function DashboardSidebar () {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>{APP_NAME}</SidebarGroupLabel>
+          <SidebarGroupLabel asChild>
+            <Link href="/">{APP_NAME}</Link></SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
