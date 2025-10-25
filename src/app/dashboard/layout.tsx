@@ -11,7 +11,7 @@ export default function DashboardLayout ({
       <DashboardSidebar />
       <main className="w-full flex gap-2">
         <SidebarTrigger />
-        <div className="w-full py-2 sm:p-5">
+        <div className="w-full p-2 sm:p-5">
           {children}
         </div>
       </main>

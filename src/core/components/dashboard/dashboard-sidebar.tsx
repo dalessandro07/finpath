@@ -1,6 +1,5 @@
 import { Book, Calculator, Home, Inbox, User } from 'lucide-react'
 import Link from 'next/link'
-
 import UserDropdownMenu from '@/core/components/dashboard/user-dropdown-menu'
 import {
   Sidebar,

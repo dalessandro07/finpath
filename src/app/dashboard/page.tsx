@@ -1,6 +1,7 @@
 import AddTransactionDialog from '@/core/components/dashboard/add-transaction-dialog'
 import BalanceCards from '@/core/components/dashboard/balance-cards'
 import TransactionsList from '@/core/components/dashboard/transactions-list'
+import WatsonChatbot from '@/core/components/dashboard/watson-chatbot'
 import { db } from '@/core/db'
 import { transaction } from '@/core/db/schema'
 import { verifySession } from '@/core/lib/dal'
@@ -16,6 +17,7 @@ export default async function DashboardPage () {
     .from(transaction)
     .where(eq(transaction.userId, user.id))
     .orderBy(desc(transaction.createdAt))
+
 
   return (
     <div className="w-full flex flex-col gap-5">
@@ -33,6 +35,8 @@ export default async function DashboardPage () {
         <AddTransactionDialog />
         <TransactionsList transactions={transactions} />
       </section>
+
+      <WatsonChatbot />
     </div>
   )
 }

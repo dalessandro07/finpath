@@ -19,14 +19,13 @@ export default function Header () {
     { href: '/#herramientas', label: 'Herramientas' },
     { href: '/#clases', label: 'Clases' },
     { href: '/#testimonios', label: 'Testimonios' },
+    { href: '/#clases', label: 'Clases' },
     { href: '/contacto', label: 'Contacto' }
   ]
-
 
   return (
     <header className='sticky top-0 z-50 bg-background flex items-center justify-between border-b-2 py-2 px-5 lg:px-7'>
       <Logo href='/' />
-
 
       {isMobile ? (
         <MobileHeader navigationItems={navigationItems} />
@@ -43,7 +42,6 @@ export default function Header () {
               ))}
             </ul>
           </nav>
-
 
           {!user ? (
             <Button asChild>
